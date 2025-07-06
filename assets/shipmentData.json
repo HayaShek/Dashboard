@@ -1,0 +1,47 @@
+[
+  {
+    "shipmentId": "TT-CARGO-2024-001",
+    "cargoType": "Container",
+    "currentStatus": "In Transit",
+    "vesselName": "MS Europa",
+    "originPort": "Kiel",
+    "destinationPort": "Malmö",
+    "eta": "2024-06-15 14:00"
+  },
+  {
+    "shipmentId": "TT-CARGO-2024-002",
+    "cargoType": "Vehicle",
+    "currentStatus": "Booked",
+    "vesselName": "Spirit of Tasmania",
+    "originPort": "Travemünde",
+    "destinationPort": "Trelleborg",
+    "eta": "2024-06-18 09:30"
+  },
+  {
+    "shipmentId": "TT-CARGO-2024-003",
+    "cargoType": "Bulk",
+    "currentStatus": "Delayed",
+    "vesselName": "MS Galaxy",
+    "originPort": "Rostock",
+    "destinationPort": "Helsinki",
+    "eta": "2024-06-16 23:00"
+  },
+  {
+    "shipmentId": "TT-CARGO-2024-004",
+    "cargoType": "Refrigerated",
+    "currentStatus": "Arrived",
+    "vesselName": "MS Europa",
+    "originPort": "Malmö",
+    "destinationPort": "Kiel",
+    "eta": "2024-06-10 08:00"
+  },
+  {
+    "shipmentId": "TT-CARGO-2024-005",
+    "cargoType": "Container",
+    "currentStatus": "At Port",
+    "vesselName": "MS Galaxy",
+    "originPort": "Helsinki",
+    "destinationPort": "Rostock",
+    "eta": "2024-06-17 10:00"
+  }
+]
