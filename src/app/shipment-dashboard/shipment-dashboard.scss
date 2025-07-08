@@ -6,15 +6,32 @@ $gray-border: #ddd;
 $text-color: #333;
 $font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 
-
-.dashboard {
-  background-color: white;
-  border-radius: 1rem;
-  padding: 0rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  max-width: 1200px;
-  margin: 0 auto;
+.page {
+  padding: 2.5rem 0;
+  background: $gray-light;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
+.dashboard-card {
+  width: 100%;
+  max-width: 1040px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 2.25rem 2.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color:$ttline-blue;
+}
+
 
 .dashboard h2 {
   margin-top: 0;
@@ -84,6 +101,49 @@ table {
   }
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+
+  button {
+    padding: 0.4rem 0.85rem;
+    min-width: 2.4rem;            /* keeps square-ish numbers */
+    border: 1px solid #cdd1d6;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #005ea8;               /* brand blue */
+    cursor: pointer;
+    transition: background 120ms ease;
+
+    &:hover:not(:disabled):not(.active) {
+      background: #eef3f9;        /* light blue tint */
+    }
+
+    &:disabled {
+      color: #9aa0a6;
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    &.active {
+      background: #005ea8;
+      color: #ffffff;
+      border-color: #005ea8;
+    }
+  }
+
+  /* optional page-counter text */
+  span {
+    margin: 0 0.4rem;
+    font-weight: 500;
+    color: #005ea8;
+  }
+}
+
 @media (max-width: 768px) {
   .filters {
     flex-direction: column;
@@ -125,34 +185,5 @@ table {
       white-space: nowrap;
     }
   }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
 
-    button {
-      padding: 0.5rem 1rem;
-      background-color: $ttline-blue;
-      color: white;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-
-      &:disabled {
-        background-color: lighten($ttline-blue, 20%);
-        cursor: not-allowed;
-      }
-
-      &:hover:not(:disabled) {
-        background-color: darken($ttline-blue, 5%);
-      }
-    }
-
-    span {
-      font-weight: bold;
-    }
-  }
 }
