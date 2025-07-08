@@ -1,0 +1,158 @@
+
+$ttline-blue: #006bb6;
+$ttline-yellow: #fdd835;
+$gray-light: #f9f9f9;
+$gray-border: #ddd;
+$text-color: #333;
+$font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+
+
+.dashboard {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard h2 {
+  margin-top: 0;
+  font-size: 0rem;
+  color: $ttline-blue;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+
+  input,
+  select {
+    padding: 0.6rem 1rem;
+    border: 1px solid $gray-border;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    min-width: 250px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $ttline-blue;
+    }
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background-color: white;
+  table-layout: fixed;
+
+  thead {
+    background-color: $ttline-blue;
+    color: white;
+
+    th {
+      text-align: left;
+      padding: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $gray-border;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba($ttline-blue, 0.05);
+      }
+    }
+
+    td {
+      padding: 1rem;
+      color: $text-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 1.5rem;
+    border: 1px solid $gray-border;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background-color: white;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+
+    &::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-weight: bold;
+      color: $ttline-blue;
+      white-space: nowrap;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: $ttline-blue;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:disabled {
+        background-color: lighten($ttline-blue, 20%);
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: darken($ttline-blue, 5%);
+      }
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

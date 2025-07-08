@@ -1,0 +1,61 @@
+<div class="dashboard">
+
+
+
+  <h2>TT-Line Cargo Dashboard</h2>
+
+  <div class="filters">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by Shipment ID or Vessel Name"
+    />
+
+    <select [(ngModel)]="selectedStatus">
+      <option value="">All Statuses</option>
+      <option *ngFor="let status of statuses" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Shipment ID</th>
+      <th>Cargo Type</th>
+      <th>Status</th>
+      <th>Vessel</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>ETA</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let shipment of filteredShipments()">
+      <td data-label="Shipment ID">{{ shipment.shipmentId }}</td>
+      <td data-label="Cargo Type">{{ shipment.cargoType }}</td>
+      <td data-label="Status">{{ shipment.currentStatus }}</td>
+      <td data-label="Vessel">{{ shipment.vesselName }}</td>
+      <td data-label="Origin">{{ shipment.originPort }}</td>
+      <td data-label="Destination">{{ shipment.destinationPort }}</td>
+      <td data-label="ETA">{{ shipment.eta }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button (click)="goToPage(currentPage() - 1)" [disabled]="currentPage() === 1">
+      ⬅ Prev
+    </button>
+
+    <span>Page {{ currentPage() }} of {{ totalPages() }}</span>
+
+    <button
+      (click)="goToPage(currentPage() + 1)"
+      [disabled]="currentPage() === totalPages()"
+    >
+      Next ➡
+    </button>
+  </div>
+</div>
